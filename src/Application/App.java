@@ -14,6 +14,14 @@ public class App {
         p1.start();
         p2.start();
 
+        for (int i = 0; i < 2; i++) {
+            try {
+                p1.join();
+                p2.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
         long timeP1 = scoreP1.getTime();
         long timeP2 = scoreP2.getTime();
@@ -24,6 +32,9 @@ public class App {
         } else{
             if (timeP1 > timeP2){
                 System.out.println("Vencedor: Ayrton Senna");
+            }
+            else{
+                System.out.println("Vencedor: Alain Prost");
             }
         }
     }
